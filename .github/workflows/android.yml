@@ -17,14 +17,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-       - name: Make Gradlew Executable
+      - name: Make Gradlew Executable
         run: chmod +x ./gradlew
 
-
       - name: Build with Gradle Wrapper
-        run: |
-          chmod +x ./gradlew
-          ./gradlew --no-daemon assembleRelease
+        run: ./gradlew --no-daemon assembleRelease
 
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
